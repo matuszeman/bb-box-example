@@ -1,6 +1,5 @@
 module.exports = {
-  name: 'bb-box-example',
-  reverseProxy: true,
+  //reverseProxy: true
   services: {
     // node6: {
     //   runtime: 'local'

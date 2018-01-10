@@ -1,4 +1,4 @@
 module.exports = {
-  name: 'node8',
+  name: 'node-docker',
   installDependencies: 'npm i'
 };
