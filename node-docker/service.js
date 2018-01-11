@@ -1,5 +1,9 @@
-console.log('Node ' + process.version + ' is running ...'); //XXX
+const Koa = require('koa');
+const app = new Koa();
 
-setInterval(() => {
-  console.log(new Date().toISOString()); //XXX
-}, 2000);
+app.use(async ctx => {
+  console.log('Request'); //XXX
+  ctx.body = 'node-docker';
+});
+
+app.listen(7013);

@@ -1,0 +1,9 @@
+[backends]
+  [backends.nodedocker]
+    [backends.nodedocker.servers.server1]
+    url = "http://127.0.0.1:7013"
+[frontends]
+  [frontends.nodedocker]
+  backend = "nodedocker"
+    [frontends.nodedocker.routes.test_1]
+    rule = "Host:nodedocker.localhost"
