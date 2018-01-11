@@ -1,4 +1,7 @@
 module.exports = {
   start: './service.config.js',
-  installDependencies: 'npm i'
+  installDependencies: 'composer install',
+  chown: {
+    paths: ['vendor']
+  }
 };

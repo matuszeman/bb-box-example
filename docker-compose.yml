@@ -1,8 +1,8 @@
-version: '3'
+version: '3.4'
 services:
   mysql:
-    image: mysql:5.7
     user: ${BOX_USER}
+    image: mysql:5.7
     ports:
       - "7012:3306"
     volumes:
@@ -12,8 +12,8 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=root
   node-docker:
-    build: node-docker
     user: ${BOX_USER}
+    build: node-docker
     ports:
       - "7013:7013"
     volumes:
@@ -23,8 +23,8 @@ services:
     depends_on:
       - mysql
   php-docker:
-    build: php-docker
     user: ${BOX_USER}
+    build: php-docker
     ports:
       - "7015:7015"
     volumes:
