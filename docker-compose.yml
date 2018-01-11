@@ -1,17 +1,19 @@
 version: '3'
 services:
   mysql:
-    container_name: mysql
     image: mysql:5.7
+    user: ${BOX_USER}
     ports:
       - "7012:3306"
     volumes:
       - ./mysql/conf.d:/etc/mysql/conf.d
       - ./mysql/data:/var/lib/mysql
+      - ./mysql/test:/test
     environment:
       - MYSQL_ROOT_PASSWORD=root
   node-docker:
     build: node-docker
+    user: ${BOX_USER}
     ports:
       - "7013:7013"
     volumes:
@@ -22,6 +24,7 @@ services:
       - mysql
   php-docker:
     build: php-docker
+    user: ${BOX_USER}
     ports:
       - "7015:7015"
     volumes:
