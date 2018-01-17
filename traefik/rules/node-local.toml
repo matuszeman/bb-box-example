@@ -1,7 +1,7 @@
 [backends]
   [backends.nodelocal]
     [backends.nodelocal.servers.server1]
-    url = "http://127.0.0.1:7014"
+    url = "http://192.168.1.157:7014"
 [frontends]
   [frontends.nodelocal]
   backend = "nodelocal"

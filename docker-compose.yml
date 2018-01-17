@@ -1,10 +1,16 @@
 version: '3.4'
 services:
+  proxy:
+    image: traefik
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - ./traefik/traefik.toml:/etc/traefik/traefik.toml
+      - ./traefik/rules:/rules
   mysql:
     user: ${BOX_USER}
     image: mysql:5.7
-    ports:
-      - "7012:3306"
     volumes:
       - ./mysql/conf.d:/etc/mysql/conf.d
       - ./mysql/data:/var/lib/mysql
@@ -14,8 +20,6 @@ services:
   node-docker:
     user: ${BOX_USER}
     build: node-docker
-    ports:
-      - "7013:7013"
     volumes:
       - ./node-docker:/app
     environment:
@@ -25,8 +29,6 @@ services:
   php-docker:
     user: ${BOX_USER}
     build: php-docker
-    ports:
-      - "7015:7015"
     volumes:
       - ./php-docker:/app
     depends_on:
